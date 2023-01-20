@@ -1,16 +1,15 @@
+import { RegisterForm } from "./RegisterForm/RegisterForm";
+import { LoginForm } from "./LoginForm/LoginForm";
+import { UserAuthMenu } from "./UserAuthMenu/UserAuthMenu"
+
 export const App = () => {
+  
+  
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <UserAuthMenu/>
+      <RegisterForm />
+      <LoginForm/>
+    </>
   );
 };

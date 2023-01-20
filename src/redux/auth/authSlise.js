@@ -1,4 +1,4 @@
-import { register, login, logout } from './auth-operations';
+import { register, login, logout, fetchCurrentUser } from './auth-operations';
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -12,10 +12,14 @@ const authSlise =createSlice({
     name: 'auth',
     initialState,
     extraReducers: builder =>
-        builder
+      builder
+        .addCase(fetchCurrentUser.pending, state => { 
+         state.fetchCurrentUser = true;
+        })
             .addCase(register.fulfilled, (state, { payload:{user,token} }) => {
                 state.user = user;
-                state.token = token;
+              state.token = token;
+              
             })
             .addCase(login.fulfilled, (state, { payload:{user,token} }) => {
                 state.user = user;
@@ -24,11 +28,15 @@ const authSlise =createSlice({
             .addCase(logout.fulfilled, state => {
                 state.user = { name: '', email: '' };
                 state.token = null
-    })
+            })
+        .addCase(fetchCurrentUser.fulfilled, (state, { payload}) => { 
+          state.user = payload;
+        })
     .addMatcher(
       isAnyOf(register.pending,
           login.pending,
-          logout.pending),
+        logout.pending,
+      fetchCurrentUser.pending),
     state => {
       state.isLoading = true;
     }
@@ -37,7 +45,8 @@ const authSlise =createSlice({
     isAnyOf(
       register.fulfilled,
       login.fulfilled,
-      logout.fulfilled
+      logout.fulfilled,
+      fetchCurrentUser.fulfilled
     ),
     state => {
       state.isLoading = false;
@@ -48,11 +57,13 @@ const authSlise =createSlice({
     isAnyOf(
       register.rejected,
       login.rejected,
-      logout.rejected
+      logout.rejected,
+      fetchCurrentUser.rejected
     ),
     (state, { payload }) => {
       state.isLoading = false;
       state.error = payload;
+      state.fetchCurrentUser=false
     }
   )
     

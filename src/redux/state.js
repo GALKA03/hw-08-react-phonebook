@@ -1,1 +1,0 @@
-import outhReduser from './contacts/auth'
