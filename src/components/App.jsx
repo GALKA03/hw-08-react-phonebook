@@ -4,12 +4,17 @@ import { UserAuthMenu } from "./UserAuthMenu/UserAuthMenu"
 
 export const App = () => {
   
+
+
   
   return (
     <>
-      <UserAuthMenu/>
+      {/* <Routes>
+
+      </Routes> */}
+       <UserAuthMenu/>
       <RegisterForm />
-      <LoginForm/>
+      <LoginForm/> 
     </>
   );
 };
