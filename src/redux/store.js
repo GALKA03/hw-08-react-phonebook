@@ -1,7 +1,31 @@
-import authReduser from './auth/authSlise'
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore } from "@reduxjs/toolkit";
+import {
+  persistStore, persistReducer,
+FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,} from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+
+import authReduser from './auth/authSlise';
+
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+   whitelist: ['token'] // blacklist: ['filter']
+}
 export const store = configureStore({
     reducer: {
-    auth: authReduser
-}
+    auth: persistReducer(authPersistConfig, authReduser)
+    },
+    
+     middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 })
+export const persistor= persistStore(store)
