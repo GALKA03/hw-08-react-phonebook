@@ -8,7 +8,8 @@ FLUSH,
   PURGE,
   REGISTER,} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-
+import contactsReducer from './contacts/contactsSlice';
+import filterReduser from './filter/filterSlice'
 import authReduser from './auth/authSlise';
 
 const authPersistConfig = {
@@ -18,7 +19,9 @@ const authPersistConfig = {
 }
 export const store = configureStore({
     reducer: {
-    auth: persistReducer(authPersistConfig, authReduser)
+    auth: persistReducer(authPersistConfig, authReduser),
+       contacts: contactsReducer,
+      filter: filterReduser,
     },
     
      middleware: getDefaultMiddleware =>
