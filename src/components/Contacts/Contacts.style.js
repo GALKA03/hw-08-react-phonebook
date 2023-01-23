@@ -28,7 +28,7 @@ margin-right:40px;
 font-size:20px;
 color: black;
 &:hover {
-    color: red; // <Thing> when hovered
+    color: green; // <Thing> when hovered
   }
 
 `

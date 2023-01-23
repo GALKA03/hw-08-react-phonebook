@@ -4,18 +4,24 @@ import Navigation from 'components/Navigation/Navigation';
 import AuthNavigation from 'components/AuthNavigation/AuthNavigation';
 import { UserAuthMenu } from 'components/UserAuthMenu/UserAuthMenu';
 import { Outlet } from 'react-router-dom';
+import Header from 'components/Header/Header';
+import { Container,Box } from '@mui/material';
+// import AuthNavigation from 'components/AuthNavigation/AuthNavigation';
 
 const Layout = () => {
-  const token = useSelector(selectToken);
+  // const token = useSelector(selectToken);
 
   return (
     <>
-      <header>
-        <Navigation />
-        {token ? <UserAuthMenu /> : <AuthNavigation />}
-      </header>
+     
+       <Navigation />
+   
+      {/* {token ? <UserAuthMenu /> : <AuthNavigation />} */}
+       
       <main>
-        <Outlet />
+       
+          <Outlet />
+
       </main>
       <footer />
     </>

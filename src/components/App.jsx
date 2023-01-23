@@ -15,6 +15,7 @@ import { selectIsFetchingCurrentUser } from 'redux/auth/authSelectors';
 
 
 
+
 export const App = () => {
   const dispatch = useDispatch();
 const isFechingCurrentUser = useSelector(selectIsFetchingCurrentUser)
@@ -24,10 +25,12 @@ const isFechingCurrentUser = useSelector(selectIsFetchingCurrentUser)
   }, [dispatch]);
   
   return (
-    <>
+    <>        
       {!isFechingCurrentUser && ( 
-<Routes>
-        <Route path="/" element={<Layout />}>
+        <Routes>
+        
+          <Route path="/" element={<Layout />}>
+    
           <Route
             path="/"
             element={
@@ -35,16 +38,9 @@ const isFechingCurrentUser = useSelector(selectIsFetchingCurrentUser)
                 <HomePage />
               </PublicRoute>
             }
-          />
-          <Route
-            path="/contacts"
-            element={
-              <PrivateRoute>
-                <ContactsPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
+              />
+              
+            <Route
             path="/register"
             element={
               <PublicRoute restricted>
@@ -59,8 +55,21 @@ const isFechingCurrentUser = useSelector(selectIsFetchingCurrentUser)
                 <LoginPage />
               </PublicRoute>
             }
-          />
-        </Route>
+              />
+          
+              
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute>
+                <ContactsPage />
+              </PrivateRoute>
+            }
+                />
+               
+            </Route>
+            
+      
       </Routes>
       )}
       

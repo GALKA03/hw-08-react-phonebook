@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'redux/contacts/contacts-operations';
 import { selectContacts } from 'redux/contacts/contactsSelector';
 import { selectFilter } from 'redux/filter/filterSelector';
+import { Stack } from '@mui/system';
 
 export const Contacts = () => {   
   const dispatch = useDispatch();
@@ -25,10 +26,16 @@ export const Contacts = () => {
   };
   const addVisible =visibleContacts()
   return ( 
-    <ContactsConteiner>
+    <Stack
+  direction="column"
+  justifyContent="space-around"
+  alignItems="stretch"
+  spacing={1}
+>
            {addVisible &&   
             addVisible.map(({ name, number, id, avatar, children }) => {
-                  return (
+              return (
+                
                     <Item key={id}>   
                       <Img src={avatar} alt="avatar" />
                        <Contact >  <Span>{name}:</Span>{number} </Contact>
@@ -36,7 +43,7 @@ export const Contacts = () => {
       {children}
        </Item>)} 
      )}
-    </ContactsConteiner>
+    </Stack>
            
 
     )

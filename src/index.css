@@ -14,7 +14,7 @@ code {
     monospace;
 }
 
-/* ul {
+ul {
   list-style: none;
   padding-left: 0px;
 }
@@ -37,4 +37,4 @@ button {
 a {
   text-decoration: none;
   color: inherit;
-} */
+}

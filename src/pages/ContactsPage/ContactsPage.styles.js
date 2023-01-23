@@ -8,6 +8,7 @@ flex-grow:1;
   height: 100%;
   max-width: 40%;
   padding:10px;
+  flex-direction:row;
   align-items: flex-start;
   justify-content:space-around;
   font-size: 20px;
@@ -18,4 +19,6 @@ border: 2px solid rgb(30, 149, 86);
 color:green;
 }
 `;
-
+export const Div = styled.div`
+padding:40px;
+`
