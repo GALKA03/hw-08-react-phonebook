@@ -35,3 +35,15 @@ export const addContact = createAsyncThunk(
     }
   }
 );
+export const updateContacts = createAsyncThunk(
+  'users/updateUser',
+  async (user, { rejectWithValue }) => {
+    try {
+      await axios.put(`http://localhost:8080/users/${user.id}`);
+      console.log(user)
+      return user;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);

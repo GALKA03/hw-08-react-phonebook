@@ -3,15 +3,13 @@ import { useSelector } from 'react-redux';
 import { selectToken } from 'redux/auth/authSelectors';
 import AuthNavigation from 'components/AuthNavigation/AuthNavigation';
 import { UserAuthMenu } from 'components/UserAuthMenu/UserAuthMenu';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import * as React from 'react';
 import {
   AppBar,
   Toolbar,
   Typography,
-  IconButton,
-  MenuItem,
-  Menu,
+  IconButton
 } from '@mui/material';
 import AccountCircleSharpIcon from '@mui/icons-material/AccountCircleSharp';
 import { Nav, MenuMain } from './Navigation.style';

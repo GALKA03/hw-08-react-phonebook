@@ -1,30 +1,17 @@
 //import Notiflix from 'notiflix';
-import { ContactsConteiner, Item, Btn,Contact,Span, Img } from 'components/Contacts/Contacts.style'
+import {Item, Btn,Contact,Span, Img } from 'components/Contacts/Contacts.style'
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'redux/contacts/contacts-operations';
-import { selectContacts } from 'redux/contacts/contactsSelector';
-import { selectFilter } from 'redux/filter/filterSelector';
+//import { selectContacts } from 'redux/contacts/contactsSelector';
+//import { selectFilter } from 'redux/filter/filterSelector';
 import { Stack } from '@mui/system';
+import { selectVisibleContacts } from 'redux/contacts/contactsSelector';
 
 export const Contacts = () => {   
+  const contacts = useSelector(selectVisibleContacts)
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
-  const filter = useSelector(selectFilter);
-   console.log('contacts', contacts)
-     console.log('filter', filter)
   
-  const visibleContacts = () => {
-     if (filter) {
-			const normalizeFilter = filter.toLowerCase();
-			if (contacts.length !== 0) {
-				return contacts.filter(contact =>
-					contact.name.toLowerCase().includes(normalizeFilter)
-				);
-			}
-		}
-	 return contacts;
-  };
-  const addVisible =visibleContacts()
+  
   return ( 
     <Stack
   direction="column"
@@ -32,8 +19,8 @@ export const Contacts = () => {
   alignItems="stretch"
   spacing={1}
 >
-           {addVisible &&   
-            addVisible.map(({ name, number, id, avatar, children }) => {
+           {contacts &&   
+            contacts.map(({ name, number, id, avatar, children }) => {
               return (
                 
                     <Item key={id}>   
