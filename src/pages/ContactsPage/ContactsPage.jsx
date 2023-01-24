@@ -22,7 +22,8 @@ const [isListShown, setIsListShown] = useState(false);
   };
 
 useEffect(() => {
-        dispatch(fetchContacts())
+  dispatch(fetchContacts())
+   setIsListShown(true);
     }, [dispatch])
   
   return (
