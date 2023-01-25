@@ -35,15 +35,15 @@ export const addContact = createAsyncThunk(
     }
   }
 );
-export const updateContacts = createAsyncThunk(
-  'users/updateUser',
-  async (user, { rejectWithValue }) => {
+export const  updateContacts = createAsyncThunk(
+  'contacts/updateContact',
+  async (contact, { rejectWithValue }) => {
     try {
-      await axios.put(`http://localhost:8080/users/${user.id}`);
-      console.log(user)
-      return user;
+      await axios.put(`https://63c00004e262345656f53441.mockapi.io/contacts/v1/${contact.id}`);
+      return contact;
     } catch (error) {
       return rejectWithValue(error);
     }
   }
 );
+
