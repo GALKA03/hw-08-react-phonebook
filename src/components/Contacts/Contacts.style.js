@@ -12,6 +12,14 @@ justify-content:start;
 align-items:center;
 height:auto;
 list-style: none;
+&:hover {
+    background-color:rgb(200, 205, 201);
+    color: green;
+  }
+ &:nth-child(2n) {
+  background-color: rgb(210, 254, 219);
+   
+}
 //word-spacing:10px;
 
 `
@@ -28,7 +36,7 @@ margin-right:40px;
 font-size:20px;
 color: black;
 &:hover {
-    color: green; // <Thing> when hovered
+    color: red; // <Thing> when hovered
   }
 
 `

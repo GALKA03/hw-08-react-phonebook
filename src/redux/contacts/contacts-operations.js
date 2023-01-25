@@ -40,6 +40,7 @@ export const  updateContacts = createAsyncThunk(
   async (contact, { rejectWithValue }) => {
     try {
       await axios.put(`https://63c00004e262345656f53441.mockapi.io/contacts/v1/${contact.id}`);
+      console.log('contact',contact)
       return contact;
     } catch (error) {
       return rejectWithValue(error);

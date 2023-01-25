@@ -17,19 +17,17 @@ const [isListShown, setIsListShown] = useState(false);
   const error = useSelector(selectError)
 
   const showUsersList = () => {
-    setIsListShown(true);
-    
+    setIsListShown(true); 
   };
-
+ 
 useEffect(() => {
   dispatch(fetchContacts())
-   setIsListShown(true);
     }, [dispatch])
   
   return (
    <>
-      <Container>
-        <Box>
+      {/* <Container>
+        <Box> */}
           <div>
       <h2
         style={{
@@ -53,11 +51,11 @@ useEffect(() => {
       </h2>
       <Filter />
       {isLoading && <Loader/>}
-       <Contacts showUsersList={showUsersList} />
+       <Contacts showUsersList={showUsersList} /> 
         {error && <p>{error.massage}</p>}
       </div>
-        </Box>
-  </Container>
+        {/* </Box>
+  </Container> */}
     </>
   );
 }

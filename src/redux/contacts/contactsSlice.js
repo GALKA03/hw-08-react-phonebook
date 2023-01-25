@@ -26,8 +26,8 @@ const contactsSlise = createSlice({
         state.contacts = [...state.contacts, payload];
       })
        .addCase(updateContacts.fulfilled, (state, { payload }) => {
-        const index = state.items.findIndex(user => user.id === payload.id);
-        state.items[index] = payload;
+        const index = state.contacts.findIndex(contact => contact.id === payload.id);
+        state.contacts[index] = payload;
       })
   .addMatcher(
       isAnyOf(fetchContacts.pending,
