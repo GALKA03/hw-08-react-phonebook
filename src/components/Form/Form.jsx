@@ -27,7 +27,7 @@ export default function Form() {
     }
   };
   const contactsObj = (name, number) => {
-    return { name, number,id: nanoid()};
+    return { name, number};
   };
 
   const hendleFormSubmit = e => {
@@ -44,7 +44,7 @@ export default function Form() {
       return;
     }
     else {
-      dispatch(addContact({ name, number,id: nanoid() }));
+      dispatch(addContact({ name, number}));
     }
     // findContact
     //   ? Notiflix.Notify.failure(`${contactsObj.name} is already in contact`)
