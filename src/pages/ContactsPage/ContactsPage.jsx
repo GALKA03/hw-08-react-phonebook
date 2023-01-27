@@ -26,8 +26,8 @@ useEffect(() => {
 
   return (
    <>
-      {/* <Container>
-        <Box> */}
+       <Container>
+        <Box> 
           <div>
       <h2
         style={{
@@ -54,8 +54,8 @@ useEffect(() => {
        <Contacts showUsersList={showUsersList} /> 
         {error && <p>{error.massage}</p>}
       </div>
-        {/* </Box>
-  </Container> */}
+       </Box>
+  </Container> 
     </>
   );
 }
