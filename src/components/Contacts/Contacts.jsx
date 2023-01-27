@@ -38,7 +38,7 @@ export const Contacts = () => {
  >
       {contacts &&
         contacts.map(({ name, number, id, children /*avatar*/ }) => {
-          console.log(id);
+  
           return (
             <Item key={id}>
               {/* <Img src={avatar} alt="avatar" />       */}
