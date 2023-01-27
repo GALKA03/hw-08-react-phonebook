@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button,TextField, Dialog,DialogActions,DialogContent,DialogContentText, DialogTitle} from '@mui/material'
+import { Button,TextField, Dialog,DialogActions,DialogContent, DialogTitle} from '@mui/material'
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { register } from "redux/auth/auth-operations";

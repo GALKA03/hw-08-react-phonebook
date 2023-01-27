@@ -11,7 +11,7 @@ import { Loader } from 'components/Loading/Loader';
 import { selectIsLoading, selectError } from 'redux/contacts/contactsSelector';
 
 const ContactsPage= ()=> {
-const [isListShown, setIsListShown] = useState(false);
+const [ setIsListShown] = useState(false);
   const dispatch = useDispatch();
    const isLoading = useSelector(selectIsLoading)
   const error = useSelector(selectError)

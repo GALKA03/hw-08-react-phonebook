@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 import AccountCircleSharpIcon from '@mui/icons-material/AccountCircleSharp';
 import { Nav, MenuMain } from './Navigation.style';
-import { backInOut } from 'popmotion';
+//import { backInOut } from 'popmotion';
 import { createTheme } from '@mui/material/styles';
 
 const Navigation = () => {
@@ -27,7 +27,10 @@ const theme = createTheme({
     primary: {
       main: '#2bb354',
       darker: '#058512',
-      contrastThreshold: 4.5,
+    },
+    neutral: {
+      main: '#64748B',
+      contrastText: '#fff',
     },
   },
 });
