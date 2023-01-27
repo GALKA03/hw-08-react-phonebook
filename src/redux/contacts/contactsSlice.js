@@ -2,7 +2,7 @@ import {
   fetchContacts,
   deleteContact,
   addContact,
-  updateContacts
+  updateContacts,
 } from './contacts-operations';
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 
@@ -12,7 +12,7 @@ const contactsSlise = createSlice({
   reducers: {
     changeFilter: (state, { payload }) => {
       state.filter = payload;
-    }
+    },
   },
   extraReducers: builder =>
     builder
@@ -25,43 +25,47 @@ const contactsSlise = createSlice({
       .addCase(addContact.fulfilled, (state, { payload }) => {
         state.contacts = [...state.contacts, payload];
       })
-       .addCase(updateContacts.fulfilled, (state, { payload }) => {
-        const index = state.contacts.findIndex(contact => contact.id === payload.id);
+      .addCase(updateContacts.fulfilled, (state, { payload }) => {
+        const index = state.contacts.findIndex(
+          contact => contact.id === payload.id
+        );
         state.contacts[index] = payload;
       })
-  .addMatcher(
-      isAnyOf(fetchContacts.pending,
+      .addMatcher(
+        isAnyOf(
+          fetchContacts.pending,
           deleteContact.pending,
-        addContact.pending,
-      updateContacts.pending),
-    state => {
-      state.isLoading = true;
-    }
+          addContact.pending,
+          updateContacts.pending
+        ),
+        state => {
+          state.isLoading = true;
+        }
       )
-    .addMatcher(
-    isAnyOf(
-      fetchContacts.fulfilled,
-      deleteContact.fulfilled,
-      addContact.fulfilled,
-      updateContacts.fulfilled
-    ),
-    state => {
-      state.isLoading = false;
-      state.error = null;
-    }
-  )
-  .addMatcher(
-    isAnyOf(
-      fetchContacts.rejected,
-      deleteContact.rejected,
-      addContact.rejected,
-      updateContacts.rejected
-    ),
-    (state, { payload }) => {
-      state.isLoading = false;
-      state.error = payload;
-    }
-  )
+      .addMatcher(
+        isAnyOf(
+          fetchContacts.fulfilled,
+          deleteContact.fulfilled,
+          addContact.fulfilled,
+          updateContacts.fulfilled
+        ),
+        state => {
+          state.isLoading = false;
+          state.error = null;
+        }
+      )
+      .addMatcher(
+        isAnyOf(
+          fetchContacts.rejected,
+          deleteContact.rejected,
+          addContact.rejected,
+          updateContacts.rejected
+        ),
+        (state, { payload }) => {
+          state.isLoading = false;
+          state.error = payload;
+        }
+      ),
 });
 //export const { addContacts, deleteContacts } = contactsSlice.actions;
 export const { changeFilter } = contactsSlise.actions;

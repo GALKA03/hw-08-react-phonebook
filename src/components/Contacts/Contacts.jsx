@@ -30,7 +30,12 @@ export const Contacts = () => {
     setUserToUpdate(null);
   };
   return (
-    <ul>
+   <Stack
+  direction="column"
+  justifyContent="space-around"
+  alignItems="stretch"
+   spacing={1}
+ >
       {contacts &&
         contacts.map(({ name, number, id, children /*avatar*/ }) => {
           console.log(id);
@@ -70,7 +75,7 @@ export const Contacts = () => {
             </Item>
           );
         })}
-    </ul>
+    </Stack>
   );
 };
 

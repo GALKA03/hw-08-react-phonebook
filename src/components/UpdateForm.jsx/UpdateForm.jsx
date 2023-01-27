@@ -48,7 +48,7 @@ export const UpdateForm = ({ closeForm, userToUpdate }) => {
           onChange={handleChange}
         />
       </label>
-      <button>Save</button>
+      <button onSubmit={handleSubmit}>Save</button>
     </form>
   );
 };

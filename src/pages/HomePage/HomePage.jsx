@@ -1,4 +1,6 @@
 import { Box, Container } from '@mui/system';
+import { Cat } from 'react-kawaii';
+import {Cont,Title} from 'pages/HomePage/HomePage.style'
 // import { useState } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { addContact } from 'redux/contacts/contacts-operations';
@@ -13,10 +15,11 @@ const HomePage = () => {
     //const homPageOpen = token ? showUsersList() : dispatch(addContact());
      return (
          <Container maxWidth="sm">
-    <Box sx={{ bgcolor: '#cfe8fc', minHeight: '500px' }} >
+             <Box sx={{ bgcolor: '#cfe8fc', minHeight: '500px', display: 'flex', flexDirection:'column',  justifyContent:'center'}} >
  
-                 <h1>HELLO HOMEPAGE</h1>
-  {/* <Cat/> */}
+                 <Title>HELLO MY PHONEBOOK</Title>
+                 {/* <Cat/> */}
+                <Cont><Cat mood="excited" size={500} /></Cont> 
           </Box>
                 </Container>
     )

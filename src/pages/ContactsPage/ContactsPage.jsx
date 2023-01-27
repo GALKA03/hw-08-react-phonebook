@@ -10,7 +10,7 @@ import { fetchContacts } from 'redux/contacts/contacts-operations';
 import { Loader } from 'components/Loading/Loader';
 import { selectIsLoading, selectError } from 'redux/contacts/contactsSelector';
 
-export function ContactsPage() {
+const ContactsPage= ()=> {
 const [isListShown, setIsListShown] = useState(false);
   const dispatch = useDispatch();
    const isLoading = useSelector(selectIsLoading)
@@ -23,7 +23,7 @@ const [isListShown, setIsListShown] = useState(false);
 useEffect(() => {
   dispatch(fetchContacts())
     }, [dispatch])
-  
+
   return (
    <>
       {/* <Container>

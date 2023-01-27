@@ -1,12 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-//axios.defaults.baseURL ='https://63c00004e262345656f53441.mockapi.io/contacts/v1';
+//axios.defaults.baseURL ='https://connections-api.herokuapp.com';
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchContacts',
   async (_, { rejectWithValue }) => {
     try {
         const { data } = await axios('https://63c00004e262345656f53441.mockapi.io/contacts/v1/contacts');
+         //.axios('https://63c00004e262345656f53441.mockapi.io/contacts/v1/contacts');
       return data;
     } catch (error) {
       return rejectWithValue(error);
@@ -39,7 +40,7 @@ export const  updateContacts = createAsyncThunk(
   'contacts/updateContact',
   async (contact, { rejectWithValue }) => {
     try {
-      await axios.put(`https://63c00004e262345656f53441.mockapi.io/contacts/v1/${contact.id}`);
+      await axios.put(`/${contact.id}`);
       console.log('contact',contact)
       return contact;
     } catch (error) {
