@@ -9,7 +9,7 @@ import Layout from 'components/Layout/Layout';
 import { fetchCurrentUser } from 'redux/auth/auth-operations';
 import PrivateRoute from './HOCs/PrivateRoute';
 import PublicRoute from './HOCs/PublicRoute';
-import { selectIsFetchingCurrentUser } from 'redux/auth/authSelectors';
+import { selectIsFetchCurrentUser } from 'redux/auth/authSelectors';
 
 
 
@@ -18,7 +18,7 @@ import { selectIsFetchingCurrentUser } from 'redux/auth/authSelectors';
 
 export const App = () => {
   const dispatch = useDispatch();
-const isFechingCurrentUser = useSelector(selectIsFetchingCurrentUser)
+const isFechingCurrentUser = useSelector(selectIsFetchCurrentUser)
 
   useEffect(() => {
     dispatch(fetchCurrentUser());

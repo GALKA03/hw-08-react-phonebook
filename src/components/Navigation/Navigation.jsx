@@ -13,13 +13,27 @@ import {
 } from '@mui/material';
 import AccountCircleSharpIcon from '@mui/icons-material/AccountCircleSharp';
 import { Nav, MenuMain } from './Navigation.style';
-
+import { backInOut } from 'popmotion';
+import { createTheme } from '@mui/material/styles';
 
 const Navigation = () => {
   const token = useSelector(selectToken);
+
+  
+
+const theme = createTheme({
+  
+  palette: {
+    primary: {
+      main: '#2bb354',
+      darker: '#058512',
+      contrastThreshold: 4.5,
+    },
+  },
+});
   //console.log(token)
   return (
-    <AppBar position="static" color="secondary">
+    <AppBar position="static" /*color='secondary'*/ theme={theme} >
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           Phonebook
