@@ -8,10 +8,11 @@ color:black;
 export const Item = styled.li`
 display:flex;
 flex-wrap:wrap;
-justify-content:start;
+justify-content:space-between;
 align-items:center;
 height:auto;
 list-style: none;
+padding: 0px 10px;
 &:hover {
     background-color:rgb(200, 205, 201);
     color: green;
@@ -32,13 +33,22 @@ border:none;
 width:auto;
 height:auto;
 margin-left:auto;
-margin-right:40px;
+margin-right:20px;
 font-size:20px;
 color: black;
 &:hover {
     color: red; // <Thing> when hovered
   }
 
+`
+export const BtnUpdate = styled.button`
+background-color:transparent;
+margin-left:auto;
+border:none;
+&:hover {
+    color: greenyellow;
+     // <Thing> when hovered
+  }
 `
 export const Contact = styled.p`
 font-size:16px;
@@ -55,3 +65,7 @@ export const Img = styled.img`
 width:40px;
 height:40px;
 ` 
+export const ContainerBtn =styled.div `
+display:flex;
+
+`

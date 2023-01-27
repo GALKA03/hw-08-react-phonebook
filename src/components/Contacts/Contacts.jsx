@@ -4,7 +4,8 @@ import {
   Btn,
   Contact,
   Span,
-  Img,
+  BtnUpdate,
+  ContainerBtn
 } from 'components/Contacts/Contacts.style';
 import DeleteOutlineSharpIcon from '@mui/icons-material/DeleteOutlineSharp';
 //import UpdateSharpIcon from '@mui/icons-material/UpdateSharp';
@@ -47,17 +48,7 @@ export const Contacts = () => {
                 <Span>{name}:</Span>
                 {number}{' '}
               </Contact>
-
-              {/* <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          > */}
-
-              {/* <DeleteOutlineIcon/> */}
-              {/* </IconButton> */}
+              <ContainerBtn>
               <Btn
                 onClick={() => {
                   dispatch(deleteContact(id));
@@ -66,12 +57,13 @@ export const Contacts = () => {
                 <DeleteOutlineSharpIcon />
               </Btn>
               {children}
-              <button onClick={() => showUpdateForm(id)}>
+              <BtnUpdate onClick={() => showUpdateForm(id)}>
                 <UpdateIcon />
-              </button>
+              </BtnUpdate>
               {userToUpdate && userToUpdate.id === id && (
                 <UpdateForm userToUpdate={userToUpdate} closeForm={closeForm} />
-              )}
+                )}
+                </ContainerBtn>
             </Item>
           );
         })}

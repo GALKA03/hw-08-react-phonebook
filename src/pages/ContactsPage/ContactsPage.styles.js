@@ -2,6 +2,7 @@ import styled from 'styled-components';
 export const Conteiner = styled.div`
 display: flex;
 /* flex-wrap:wrap; */
+padding-top: 40px;
 flex-grow:1;
   margin-left: auto;
   margin-right: auto;
@@ -20,5 +21,5 @@ color:green;
 }
 `;
 export const Div = styled.div`
-padding:40px;
+margin-top:40px;
 `

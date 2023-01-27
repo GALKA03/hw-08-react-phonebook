@@ -5,7 +5,7 @@ display:flex;
 flex-direction:column;
 align-items:stretch;
 justify-content:center;
-background-color:rgb(205, 225, 204);
+background-color:rgb(205, 225, 204); 
 `
 export const InputStyle = styled.input`
 min-width: 200px;

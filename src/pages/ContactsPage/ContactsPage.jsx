@@ -1,5 +1,5 @@
 import { Box, Container } from '@mui/system';
-//  import { Conteiner,Div } from 'pages/ContactsPage/ContactsPage.styles';
+import { Div } from 'pages/ContactsPage/ContactsPage.styles';
 import { Filter } from 'components/Filter/Filter';
 import Form from 'components/Form/Form';
 import { Contacts } from 'components/Contacts/Contacts';
@@ -28,18 +28,9 @@ useEffect(() => {
    <>
        <Container>
         <Box> 
-          <div>
-      <h2
-        style={{
-          textAlign: 'center',
-          color: 'rgb(30, 149, 86)',
-          bacgroundColor: 'green',
-        }}
-      >
-        Phonebook
-        </h2>
+          <Div>
         <Form />
-      </div>
+      </Div>
       <div>
       <h2
         style={{
