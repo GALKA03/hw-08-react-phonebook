@@ -21,11 +21,36 @@ export const App = () => {
 
   return (
     <>
-      {!isFechingCurrentUser && (
+      {isFechingCurrentUser ? (
+         <b>Refreshing user...</b>
+      ):
+        (
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route path="/" element={<HomePage />} />
-
+<Route
+          path="/register"
+          element={
+            <PublicRoute redirectTo="/contacts" component={<RegisterPage />} />
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <PublicRoute redirectTo="/contacts" component={<LoginPage />} />
+          }
+        />
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+          }
+        />
+            
+            
+            
+            
+            {/*
             <Route
               path="/register"
               element={
@@ -37,7 +62,7 @@ export const App = () => {
             <Route
               path="/login"
               element={
-                <PublicRoute restricted>
+                <PublicRoute restricted redirectTo="/login">
                   <LoginPage />
                 </PublicRoute>
               }
@@ -48,10 +73,10 @@ export const App = () => {
               element={
                 <PrivateRoute>
                    <ContactsPage />
-                </PrivateRoute> 
+                </PrivateRoute>
                 
               }
-            />
+            /> */}
           </Route>
         </Routes>
       )}

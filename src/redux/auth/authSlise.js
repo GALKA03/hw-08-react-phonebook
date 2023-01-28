@@ -32,7 +32,6 @@ const authSlise = createSlice({
       })
       .addCase(fetchCurrentUser.pending, state => {
         state.isFetchCurrentUser = true;
-        state.isLoggedIn = true;//?????
       })
       .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
         state.user = payload;
