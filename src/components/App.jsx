@@ -7,72 +7,54 @@ import RegisterPage from 'pages/RegisterPage/RegisterPage';
 import LoginPage from 'pages/LoginPage/LoginPage';
 import Layout from 'components/Layout/Layout';
 import { fetchCurrentUser } from 'redux/auth/auth-operations';
-import PrivateRoute from './HOCs/PrivateRoute';
-import PublicRoute from './HOCs/PublicRoute';
+import { PrivateRoute } from './HOCs/PrivateRoute';
+import { PublicRoute } from './HOCs/PublicRoute';
 import { selectIsFetchCurrentUser } from 'redux/auth/authSelectors';
-
-
-
-
-
 
 export const App = () => {
   const dispatch = useDispatch();
-const isFechingCurrentUser = useSelector(selectIsFetchCurrentUser)
+  const isFechingCurrentUser = useSelector(selectIsFetchCurrentUser);
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
-  
+
   return (
-    <>        
-      {!isFechingCurrentUser && ( 
+    <>
+      {!isFechingCurrentUser && (
         <Routes>
-        
           <Route path="/" element={<Layout />}>
-    
-          <Route
-            path="/"
-            element={
-              <PublicRoute>
-                <HomePage />
-              </PublicRoute>
-            }
-              />
-              
+            <Route path="/" element={<HomePage />} />
+
             <Route
-            path="/register"
-            element={
-              <PublicRoute restricted>
-                <RegisterPage />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="/login"
-            element={
-              <PublicRoute restricted>
-                <LoginPage />
-              </PublicRoute>
-            }
-              />
-          
-              
-          <Route
-            path="/contacts"
-            element={
-              <PrivateRoute>
-                <ContactsPage />
-              </PrivateRoute>
-            }
-                />
-               
-            </Route>
-            
-      
-      </Routes>
+              path="/register"
+              element={
+                <PublicRoute restricted>
+                  <RegisterPage />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <PublicRoute restricted>
+                  <LoginPage />
+                </PublicRoute>
+              }
+            />
+
+            <Route
+              path="/contacts"
+              element={
+                <PrivateRoute>
+                   <ContactsPage />
+                </PrivateRoute> 
+                
+              }
+            />
+          </Route>
+        </Routes>
       )}
-      
     </>
   );
 };

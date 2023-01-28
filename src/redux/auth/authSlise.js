@@ -7,6 +7,7 @@ const initialState = {
   isLoading: false,
   error: null,
   isFetchCurrentUser: false,
+  isLoggedIn: false,
 };
 console.log('initialState', initialState);
 const authSlise = createSlice({
@@ -17,17 +18,21 @@ const authSlise = createSlice({
       .addCase(register.fulfilled, (state, { payload: { user, token } }) => {
         state.user = user;
         state.token = token;
+        state.isLoggedIn = true;
       })
       .addCase(login.fulfilled, (state, { payload: { user, token } }) => {
         state.user = user;
         state.token = token;
+        state.isLoggedIn = true;
       })
       .addCase(logout.fulfilled, state => {
         state.user = { name: '', email: '' };
         state.token = null;
+        state.isLoggedIn = false;
       })
       .addCase(fetchCurrentUser.pending, state => {
         state.isFetchCurrentUser = true;
+        state.isLoggedIn = true;//?????
       })
       .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
         state.user = payload;

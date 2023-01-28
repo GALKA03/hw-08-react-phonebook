@@ -12,7 +12,7 @@ const name = useSelector(selectName)
             
             <Text>{`WELCOME ${name}`}</Text>
            
-            <Button onClick={() => dispatch(logout())} size="medium" variant='contained'  color='success'>logout</Button>
+            <Button type='button' onClick={() => dispatch(logout())} size="medium" variant='contained'  color='success'>logout</Button>
         </>
     )
 }
