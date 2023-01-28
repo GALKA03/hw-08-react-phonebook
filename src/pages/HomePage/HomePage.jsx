@@ -12,7 +12,7 @@ const HomePage = () => {
 
      //const homPageOpen = token ? showUsersList() : dispatch(addContact());
      return (
-         <Container maxWidth="xl" height='100%' sx={{ bgcolor: '#daf5d6' }}>
+         <Container maxWidth="xl" height='100hv' >
              <Box sx={{  /*height: '100%',*/ width: '100%', display: 'flex', flexDirection:'column',  justifyContent:'center'}} >
                  <Title>HELLO MY PHONEBOOK</Title>
                  {/* <Cat/> */}

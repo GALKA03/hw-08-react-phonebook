@@ -1,5 +1,7 @@
 import { RegisterForm } from "components/RegisterForm/RegisterForm";
-import { Box, Container } from '@mui/system';
+import { Box, Container, display } from '@mui/system';
+import { Div } from "./RegisterPage.style";
+import { Browser } from 'react-kawaii';
 const RegisterPage = () => {
 // const [showModal, setShowModal]= useState(true)
 // useEffect(() => {
@@ -29,10 +31,12 @@ const RegisterPage = () => {
 //     }
 
     return (
-         <Container maxWidth="sm">
-    <Box sx={{ bgcolor: '#cfe8fc', height: '100vh', p: '40px'}} >
+         <Container maxWidth="sm"  sx={{ bgcolor: '#eef4ed' }}>
+              <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems:'center', height: '100vh', width:'100hv', p: '40px'}} >
  
-                <RegisterForm />
+                   <RegisterForm />
+                   <Div> <Browser size={200} mood="lovestruck" color="#61DDBC" /></Div>
+                  
                 </Box>
          </Container>       
     )

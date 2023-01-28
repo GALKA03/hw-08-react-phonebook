@@ -3,7 +3,10 @@ export const ContactsConteiner = styled.ul`
 position: relative;
 background-color:transparent;
 color:black;
-
+&:hover {
+    background-color:rgb(200, 205, 201);
+    color: green;
+  }
 `
 export const Item = styled.li`
 display:flex;
@@ -17,10 +20,11 @@ padding: 0px 10px;
     background-color:rgb(200, 205, 201);
     color: green;
   }
- &:nth-child(2n) {
-  background-color: rgb(210, 254, 219);
+
+ /* &:nth-child(2n) {
+  background-color: rgb(210, 254, 219); */
    
-}
+//}
 //word-spacing:10px;
 
 `

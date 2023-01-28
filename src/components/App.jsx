@@ -1,15 +1,19 @@
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import HomePage from 'pages/HomePage/HomePage';
-import ContactsPage from 'pages/ContactsPage/ContactsPage';
-import RegisterPage from 'pages/RegisterPage/RegisterPage';
-import LoginPage from 'pages/LoginPage/LoginPage';
+
 import Layout from 'components/Layout/Layout';
 import { fetchCurrentUser } from 'redux/auth/auth-operations';
 import { PrivateRoute } from './HOCs/PrivateRoute';
 import { PublicRoute } from './HOCs/PublicRoute';
 import { selectIsFetchCurrentUser } from 'redux/auth/authSelectors';
+
+import HomePage from 'pages/HomePage/HomePage';
+import ContactsPage from 'pages/ContactsPage/ContactsPage';
+import RegisterPage from 'pages/RegisterPage/RegisterPage';
+import LoginPage from 'pages/LoginPage/LoginPage';
+
+
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -27,7 +31,7 @@ export const App = () => {
         (
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route path="/" element={<HomePage />} />
+            <Route index element={<HomePage />} />
 <Route
           path="/register"
           element={
@@ -46,37 +50,6 @@ export const App = () => {
             <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
           }
         />
-            
-            
-            
-            
-            {/*
-            <Route
-              path="/register"
-              element={
-                <PublicRoute restricted>
-                  <RegisterPage />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="/login"
-              element={
-                <PublicRoute restricted redirectTo="/login">
-                  <LoginPage />
-                </PublicRoute>
-              }
-            />
-
-            <Route
-              path="/contacts"
-              element={
-                <PrivateRoute>
-                   <ContactsPage />
-                </PrivateRoute>
-                
-              }
-            /> */}
           </Route>
         </Routes>
       )}

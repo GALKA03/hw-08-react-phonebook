@@ -36,6 +36,7 @@ const authSlise = createSlice({
       .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
         state.user = payload;
         state.isFetchCurrentUser = false;
+        state.isLoggedIn = true;
       })
       .addCase(fetchCurrentUser.rejected, state => {
         state.isFetchCurrentUser = false;
