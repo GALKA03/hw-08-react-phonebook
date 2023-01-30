@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const Nav = styled.nav`
 display:flex;
-justify-content:space-around;
+justify-content:space-between;
 //flex-wrap:wrap;
 margin-right:20px;
 flex-grow:1;
