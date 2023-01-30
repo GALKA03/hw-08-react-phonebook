@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { register } from "redux/auth/auth-operations";
 import { Btn } from './RegisterForm.style';
+//import { createTheme } from '@mui/system';
 
 export const RegisterForm = () => {
     const dispatch = useDispatch();
@@ -45,6 +46,10 @@ export const RegisterForm = () => {
         setPassword('')
     }
 
+  
+
+  
+  
   return (
     <div>
       <Btn /*sx={{ml:'auto', mr:'auto'}} variant="outlined" /*size="large"*/ onClick={handleClickOpen}>
@@ -65,7 +70,7 @@ export const RegisterForm = () => {
            
                 <TextField margin='normal' label="Password"fullWidth autoFocus type="password" name="password" value={password} onChange={handleChange} />
           <DialogActions>
-                          <Button onClick={handleFormSubmit}>Register</Button>
+                          <Button  onClick={handleFormSubmit}>Register</Button>
         </DialogActions>
         </form>
           {/* <DialogContentText>

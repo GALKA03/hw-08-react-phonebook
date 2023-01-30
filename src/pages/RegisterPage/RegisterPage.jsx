@@ -31,7 +31,7 @@ const RegisterPage = () => {
 //     }
 
     return (
-         <Container maxWidth="sm"  sx={{ bgcolor: '#eef4ed' }}>
+         <Container maxWidth="sm" >
               <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems:'center', height: '100vh', width:'100hv', p: '40px'}} >
  
                    <RegisterForm />

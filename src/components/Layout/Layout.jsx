@@ -13,15 +13,12 @@ const Layout = () => {
 
   return (
     <>
-     <header>
-       <Navigation />
-   </header>
-       {/* {token ? <UserAuthMenu /> : <AuthNavigation />} */}
-       
-      <main>
-       
-          <Outlet />
+      <Navigation />
 
+      {/* {token ? <UserAuthMenu /> : <AuthNavigation />} */}
+
+      <main>
+        <Outlet />
       </main>
       <footer />
     </>

@@ -46,10 +46,7 @@ export default function Form() {
     else {
       dispatch(addContact({ name, number}));
     }
-    // findContact
-    //   ? Notiflix.Notify.failure(`${contactsObj.name} is already in contact`)
-    //   : dispatch(addContact({ name, number }));
-
+    
     setName('');
     setNumber('');
   };

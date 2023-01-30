@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { Loader } from './Loading/Loader';
 import Layout from 'components/Layout/Layout';
 import { fetchCurrentUser } from 'redux/auth/auth-operations';
 import { PrivateRoute } from './HOCs/PrivateRoute';
@@ -26,7 +26,7 @@ export const App = () => {
   return (
     <>
       {isFechingCurrentUser ? (
-         <b>Refreshing user...</b>
+         <Loader/>
       ):
         (
         <Routes>

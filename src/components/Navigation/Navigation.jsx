@@ -4,6 +4,7 @@ import { selectToken } from 'redux/auth/authSelectors';
 import AuthNavigation from 'components/AuthNavigation/AuthNavigation';
 import { UserAuthMenu } from 'components/UserAuthMenu/UserAuthMenu';
 // import { Link } from 'react-router-dom';
+import {Items} from 'components/Navigation/Navigation.style'
 import * as React from 'react';
 import {
   AppBar,
@@ -34,22 +35,40 @@ const theme = createTheme({
     },
   },
 });
+
+      let activeStyle = {
+     
+    textDecoration: "underline",
+    color: "white",
+    fontSize: '30',
+
+  };
+  
   //console.log(token)
   return (
     <AppBar position="static" /*color='secondary'*/ theme={theme} >
       <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1, color:'white', fontSize:'30px' }}>
           Phonebook
         </Typography>
         <Nav>
           <MenuMain>
-            <li>
-              <NavLink to="/">Home</NavLink>
-            </li>
+            <Items>
+              <IconButton
+                    size="large"
+                    aria-label="account of current user"
+                    aria-controls="menu-appbar"
+                    aria-haspopup="true"
+                    // onClick={handleMenu}
+                    color="inherit"
+                  >
+              <NavLink to="/"   style={({ isActive }) =>isActive ? activeStyle : undefined}>Home</NavLink>
+           </IconButton>
+            </Items>
 
             {token && (
-              <li>
-                <NavLink to="/contacts">
+              <Items>
+                <NavLink to="/contacts"  style={({ isActive }) =>isActive ? activeStyle : undefined}>
                   <IconButton
                     size="large"
                     aria-label="account of current user"
@@ -59,9 +78,10 @@ const theme = createTheme({
                     color="inherit"
                   >
                     <AccountCircleSharpIcon />
+                    <p >Contacts</p>
                   </IconButton>
                 </NavLink>
-              </li>
+              </Items>
             )}
                   </MenuMain>  
                   {token ? <UserAuthMenu /> : <AuthNavigation />}

@@ -7,9 +7,9 @@ height:40px;
 margin-left:auto;
 margin-right:auto;
 /* text-align:center; */
-background-color: #0078d0;
+background-color: rgb(123, 188, 110);
   border: 0;
-  border-radius: 56px;
+  border-radius: 10%;
   color: #fff;
   /* cursor: pointer; */
   /* font-family: system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif; */
