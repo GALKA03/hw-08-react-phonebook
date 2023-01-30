@@ -4,7 +4,7 @@ import { selectToken } from 'redux/auth/authSelectors';
 import AuthNavigation from 'components/AuthNavigation/AuthNavigation';
 import { UserAuthMenu } from 'components/UserAuthMenu/UserAuthMenu';
 // import { Link } from 'react-router-dom';
-import {Items,H1} from 'components/Navigation/Navigation.style'
+import {Items,H1,Div} from 'components/Navigation/Navigation.style'
 import * as React from 'react';
 import {
   AppBar,
@@ -53,7 +53,7 @@ alignItems:'stretch'}}  theme={theme} >
           <H1>Phonebook</H1>  
         {/* </Typography> */}
       <Nav>
-     <div>
+     <Div>
           <MenuMain>
             <Items>
               <IconButton
@@ -86,7 +86,7 @@ alignItems:'stretch'}}  theme={theme} >
               </Items>
             )}
           </MenuMain>
-          </div>
+          </Div>
                   {token ? <UserAuthMenu /> : <AuthNavigation />}
       
       </Nav>
