@@ -17,3 +17,12 @@ font-size: 23px;
 font-weight:500;
 color:white;
 `
+export const Div = styled.div`
+display:flex;
+@media screen and (max-width: 750px) {
+display:block;
+    text-align:center;
+}
+
+
+`

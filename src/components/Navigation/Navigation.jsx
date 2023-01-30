@@ -4,7 +4,7 @@ import { selectToken } from 'redux/auth/authSelectors';
 import AuthNavigation from 'components/AuthNavigation/AuthNavigation';
 import { UserAuthMenu } from 'components/UserAuthMenu/UserAuthMenu';
 // import { Link } from 'react-router-dom';
-import {Items} from 'components/Navigation/Navigation.style'
+import {Items,H1} from 'components/Navigation/Navigation.style'
 import * as React from 'react';
 import {
   AppBar,
@@ -46,12 +46,14 @@ const theme = createTheme({
   
   //console.log(token)
   return (
-    <AppBar position="static" /*color='secondary'*/ theme={theme} >
-      <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1, color:'white', fontSize:'30px' }}>
-          Phonebook
-        </Typography>
-        <Nav>
+    <AppBar position="static" /*color='secondary'*/ sx={{ display: 'flex', justifyContent:'space-between',
+alignItems:'stretch'}}  theme={theme} >
+      {/* <Toolbar sx={{display:'block'}}> */}
+        {/* <Typography variant="h6" component="div" sx={{ flexGrow: 1, color:'white', fontSize:'30px' }}> */}
+          <H1>Phonebook</H1>  
+        {/* </Typography> */}
+      <Nav>
+     <div>
           <MenuMain>
             <Items>
               <IconButton
@@ -83,10 +85,12 @@ const theme = createTheme({
                 </NavLink>
               </Items>
             )}
-                  </MenuMain>  
+          </MenuMain>
+          </div>
                   {token ? <UserAuthMenu /> : <AuthNavigation />}
-        </Nav>
-      </Toolbar>
+      
+      </Nav>
+      {/* </Toolbar> */}
     </AppBar>
   );
 };

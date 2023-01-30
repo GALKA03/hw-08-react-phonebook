@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { logout } from "redux/auth/auth-operations"
 import { selectName} from "redux/auth/authSelectors"
 import { Button, createTheme } from "@mui/material"
-import { /*Btn, conteinerLogOut,*/ Text } from "./UserAuthMenu.style"
+import { /*Btn, conteinerLogOut,*/ Text, Div } from "./UserAuthMenu.style"
 export const UserAuthMenu = () => {
     const dispatch = useDispatch()
 const name = useSelector(selectName)
@@ -23,10 +23,10 @@ const name = useSelector(selectName)
 }); 
     return (
         <>
-            
+            <Div>
             <Text>{`WELCOME ${name}`}</Text>
            
             <Button type='button' onClick={() => dispatch(logout())} size="medium" variant='outlined'  /*color='success'*/ theme ={theme}><p>logout</p></Button>
-        </>
+        </Div></>
     )
 }
