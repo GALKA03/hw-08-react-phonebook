@@ -47,7 +47,7 @@ const theme = createTheme({
   //console.log(token)
   return (
     <AppBar position="static" /*color='secondary'*/ sx={{ display: 'flex', justifyContent:'space-between',
-alignItems:'stretch'}}  theme={theme} >
+alignItems:'stretch', p:'15px'}}  theme={theme} >
       {/* <Toolbar sx={{display:'block'}}> */}
         {/* <Typography variant="h6" component="div" sx={{ flexGrow: 1, color:'white', fontSize:'30px' }}> */}
           <H1>Phonebook</H1>  

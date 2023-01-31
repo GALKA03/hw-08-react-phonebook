@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { register } from "redux/auth/auth-operations";
 import { Btn } from './RegisterForm.style';
+import { Formik } from 'formik';
 //import { createTheme } from '@mui/system';
 
 export const RegisterForm = () => {
@@ -57,7 +58,8 @@ export const RegisterForm = () => {
       </Btn>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Subscribe</DialogTitle>
-              <DialogContent>  
+        <DialogContent>
+        
               <form onSubmit={handleFormSubmit}>
             
     
@@ -72,7 +74,8 @@ export const RegisterForm = () => {
           <DialogActions>
                           <Button  onClick={handleFormSubmit}>Register</Button>
         </DialogActions>
-        </form>
+            </form>
+         
           {/* <DialogContentText>
            
           </DialogContentText> */}
