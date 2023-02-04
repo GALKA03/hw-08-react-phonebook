@@ -2,21 +2,22 @@ import styled, { keyframes } from "styled-components";
 
 
 const animateName = keyframes`
- 0%{
-    transition:translate(0,0);
-    opasity:1;
-}
-100%{
-    transition:translate(100%,0);
-    opasity:0;
-} `
+ 0% {
+    transform: scale(0.75);
+  }
+
+  100% {
+    transform: scale(1.25);
+  }`
 
 export const Cont = styled.div`
+position: relative;
 display:flex;
 justify-content:center;
 align-items:center;
-animation:${animateName} 1s;
-
+&:hover{
+ animation:${animateName} 3000ms infinite 1000ms;   
+}
 ` 
 const scale = keyframes`
 from{
