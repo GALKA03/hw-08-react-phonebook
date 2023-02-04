@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components";
 
 export const Nav = styled.nav`
 display:flex;
@@ -16,11 +16,21 @@ flex-grow:1;
 flex-direction:column;
 }
 `
+const animateName = keyframes`
+from{
+  left:-1000px;
+}
+to{
+  left:50px;
+}
+` 
 export const H1 = styled.h1`
+position:relative;
 @media screen and (max-width: 750px) {
  font-size: 20px;
 font-weight:400;
 }
+animation:${animateName} 1s;
 color:white;
 //display:inline-block;
 
