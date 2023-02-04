@@ -10,12 +10,7 @@ const animation = keyframes`
 `
 export const Div = styled.div`
 position:relative;
-&:hover{
-animation: ${animation}  3000ms infinite alternate backwards ease-in-out 1000ms;;
-
-}
-
-
+animation: ${animation}  3000ms infinite alternate backwards ease-in-out 1000ms;
 margin-top:50px;
 
 
