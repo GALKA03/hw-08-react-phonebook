@@ -59,7 +59,7 @@ export const LoginForm = () => {
         <TextField
           sx={{ bgcolor: ' rgb(237, 212, 237)' }}
           id="standard-basic"
-          label="Password:"
+          label="Password:*********"
           variant="filled"
           type="password"
           name="password"
