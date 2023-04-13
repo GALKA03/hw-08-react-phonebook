@@ -16,8 +16,18 @@ import LoginPage from 'pages/LoginPage/LoginPage';
 
 
 export const App = () => {
+  //const [data, setData] = React.useState(null);
+
+
   const dispatch = useDispatch();
   const isFechingCurrentUser = useSelector(selectIsFetchCurrentUser);
+
+  // useEffect(() => {
+  //   fetch("/api")
+  //     .then((res) => res.json())
+  //     .then((data) => setData(data.message));
+  // }, []);
+
 
   useEffect(() => {
     dispatch(fetchCurrentUser());

@@ -13,7 +13,7 @@ const token = {
    },
  };
 export const register = createAsyncThunk(
-  'auth/register',
+  'auth/register',//
   async (userData, { rejectWithValue }) => {
     try {
       const { data } = await axios.post('/users/signup', userData);
@@ -61,7 +61,7 @@ export const logout = createAsyncThunk(
     try {
       const { data } = await axios('/users/current');
       return data;
-     } catch (error) {
+} catch (error) {
        return rejectWithValue(error.message);
     }
   }

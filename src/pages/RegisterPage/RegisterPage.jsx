@@ -3,8 +3,6 @@ import { Box, Container, display } from '@mui/system';
 import { Div } from "./RegisterPage.style";
 import { Browser } from 'react-kawaii';
 const RegisterPage = () => {
-
-
     return (
          <Container maxWidth="sm" >
               <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems:'center',  width:'100hv', p: '40px'}} >
