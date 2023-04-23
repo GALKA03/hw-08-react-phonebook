@@ -30,7 +30,7 @@ export default function Form() {
     return { name, number};
   };
 
-  const hendleFormSubmit = e => {
+  const handleFormSubmit = e => {
     e.preventDefault();
     const findContact = contacts.find(contact =>
       contact.name.toLowerCase().includes(contactsObj.name.toLowerCase())
@@ -52,7 +52,7 @@ export default function Form() {
   };
 
   return (
-    <FormStyled onSubmit={hendleFormSubmit}>
+    <FormStyled onSubmit={handleFormSubmit}>
       <label>
         Name
         <InputStyle
