@@ -14,7 +14,24 @@ export const RegisterForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
   const [open, setOpen] = React.useState(false);
-
+  const [errors, setErrors] = useState({});
+  
+const validateForm = () => {
+  const newErrors = {};
+  if (!name) {
+    newErrors.name = 'Name is required';
+  }
+  if (!email) {
+    newErrors.email = 'Email is required';
+  }
+  if (!password) {
+    newErrors.password = 'Password is required';
+  } else if (password.length !== 8) {
+    newErrors.password = 'Password must be exactly 8 numbers ';
+  }
+  setErrors(newErrors);
+  return Object.keys(newErrors).length === 0;
+};
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -39,16 +56,24 @@ export const RegisterForm = () => {
                 break
         }
     }
-    const handleFormSubmit = (e) => {
-        e.preventDefault()
-        dispatch(register({ name, email, password }))
-        setName('')
-        setEmail('')
-        setPassword('')
+    // const handleFormSubmit = (e) => {
+    
+    //     e.preventDefault()
+    //     dispatch(register({ name, email, password }))
+    //     setName('')
+    //     setEmail('')
+    //     setPassword('')
+    // }
+const handleFormSubmit = (event) => {
+    event.preventDefault();
+    if (validateForm()) {
+      dispatch(register({ name, email, password }));
+      setName('');
+      setEmail('');
+      setPassword('');
+      handleClose();
     }
-
-  
-
+  };
   
   
   return (
@@ -70,7 +95,18 @@ export const RegisterForm = () => {
                 <TextField margin='normal' label="Email Address" fullWidth autoFocus type="email" name="email" value={email} onChange={handleChange} />
          
            
-                <TextField margin='normal' label="Password"fullWidth autoFocus type="password" name="password" value={password} onChange={handleChange} />
+                <TextField
+  margin="normal"
+  label="Password"
+  fullWidth
+  autoFocus
+  type="password"
+  name="password"
+  value={password}
+  onChange={handleChange}
+  error={!!errors.password}
+  helperText={errors.password}
+/>
           <DialogActions>
                           <Button  onClick={handleFormSubmit}>Register</Button>
         </DialogActions>
