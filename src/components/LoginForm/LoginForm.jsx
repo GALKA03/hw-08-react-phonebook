@@ -9,7 +9,8 @@ export const LoginForm = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const [errors, setErrors] = useState({});
+  
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
       case 'email':
@@ -22,13 +23,27 @@ export const LoginForm = () => {
         break;
     }
   };
-  const handleFormSubmit = e => {
-    e.preventDefault();
-    dispatch(login({ email, password }));
 
-    setEmail('');
-    setPassword('');
+  const validateForm = () => {
+    const newErrors = {};
+    if (!email) {
+      newErrors.email = 'Email is required';
+    }
+    if (!password) {
+      newErrors.password = 'Password is required';
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
+const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      dispatch(login({ email, password }));
+      setEmail('');
+      setPassword('');
+    }
+  };
+ 
   return (
     <Paper sx={{mt:'40px'}} elevation={3}>
       <Box
